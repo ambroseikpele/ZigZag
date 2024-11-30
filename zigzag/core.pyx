@@ -106,7 +106,7 @@ cpdef peak_valley_pivots_detailed(double [:] X,
                                                      up_thresh,
                                                      down_thresh)
         int64_t t_n = len(X)
-        ndarray[int64_t, ndim=1] pivots = np.zeros(t_n, dtype=np.int_)
+        ndarray[int64_t, ndim=1] pivots = np.zeros(t_n, dtype=np.int64)
         int64_t trend = -initial_pivot
         int64_t last_pivot_t = 0
         double last_pivot_x = X[0]
@@ -211,8 +211,7 @@ def pivots_to_modes(int64_t [:] pivots):
 
     cdef:
         int64_t x, t
-        ndarray[int64_t, ndim=1] modes = np.zeros(len(pivots),
-                                                dtype=np.int_)
+        ndarray[int64_t, ndim=1] modes = np.zeros(len(pivots), dtype=np.int64)
         int64_t mode = -pivots[0]
 
     modes[0] = pivots[0]
